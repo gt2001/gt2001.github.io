@@ -8,10 +8,10 @@
 <p>用最少的临床数据预测膝关节内收力矩对步态再训练的反应</p>
 <p>0. Abstract: Knee osteoarthritis(膝关节炎)<-caused by high joint load<-also as knee adduction moment(KAM, 膝关节内收力矩)<-can be reduced by foot progression angle modifications. Use 6 features->predict 1st peak KAM reduction after toe-in gait retraining. Create synthetic dataset from ground-truth dataset. Gain small absolute error. Clinicians no longer need gait lab instrumentation to predict the reduction.</p>
 <p>1. Introduction: By reducing lever arm, Toe-in/out gait is currently the most efficacious method to reduce KAM trajectory and KAM peak.</p>
-<img src="pp1\062111004154002.jpg" height="600" alt="Introduction">
+<img src="pp1\062111004154002.jpg" height="300" alt="Introduction">
 <p>2. Methods: Collected data from dataset1 that maps different toe-in angles and KJC positions during baseline gait to different KJC offsets in both mediolateral and anterior-posterior directions with basis splines of order 12.</p>
 <p>3. Exert the previous model that predict KJC offsets on a new dataset2 that only contains baseline gait trials and generate KAM reduction at different toe-in angles. Train another linear model that contains 6 features: height, weight, walking speed, static alignment, baseline FPA, toe-in FPA, to predict KAM reduction.</p>
 <p>4. Test the KAM trajectory model1 provides and the corresponding KAM reduction model2 provides on dataset3 to see whether the model can generalize on data given by a different lab.</p>
-<img src="pp1\062111004154003.jpg" height="600" alt="Methodology">
+<img src="pp1\062111004154003.jpg" height="300" alt="Methodology">
 <p>5. Future Work: Calculate the moment with a more accurate formula. Use toe-out gait modification data as well. Incorporate datasets from multiple labs to further generalize the model. Investigate why weight has little thing to do with KAM reduction. Make sure that all features can be obtained without gaitanalysis. Improve measurement accuracy with motion capture techniques(e.g. wearable sensing, CV).</p>
 <p>6. My Question: What's the legitimacy of using linear model to predict KAM reduction? Even if we get the optimal toe-in angle, how can the patient control his/her feet to walk exactly in that angle?</p>
