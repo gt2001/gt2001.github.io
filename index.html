@@ -4,6 +4,11 @@
   <title>Personal Webpage of Hua Tong.</title>
 </head>
 <body>
+  <script>
+  function websiteVisits(response) {
+    document.querySelector("#visits").textContent = response.value;
+  }
+  </script>
   <h1>This site has been visited <span id="visits"></span> times.</h1>
   <img src="pp1\profile.png" height="300" alt="Introduction">
   <p>Education: Nanjing Foreign Language School(2016.9-2018.7)-University of Science and Technology of China(2018.9-2022.7)-Carnegie Mellon University MechE PhD(2022.9-2027.7 expected)</p>
