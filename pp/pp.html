@@ -2,11 +2,11 @@
 <p>用最少的临床数据预测膝关节内收力矩对步态再训练的反应</p>
 <p>0. Abstract: Knee osteoarthritis(膝关节炎)<-caused by high joint load<-also as knee adduction moment(KAM, 膝关节内收力矩)<-can be reduced by foot progression angle modifications. Use 6 features->predict 1st peak KAM reduction after toe-in gait retraining. Create synthetic dataset from ground-truth dataset. Gain small absolute error. Clinicians no longer need gait lab instrumentation to predict the reduction.</p>
 <p>1. Introduction: By reducing lever arm(A), Toe-in/out gait is currently the most efficacious method to reduce lever arm(B), KAM trajectory, and peak KAM(C).</p>
-<img src="pp1\062111004154002.jpg" height="700" alt="Introduction">
+<img src="pp1\062111004154002.jpg" height="600" alt="Introduction">
 <p>2. Methods: Collected data from dataset1 that maps different toe-in angles and KJC positions during baseline gait to different KJC offsets in both mediolateral and anterior-posterior directions with basis splines of order 12(2.1).</p>
 <p>3. Exert the previous model that predict KJC offsets on a new dataset2 that only contains baseline gait trials and generate KAM reduction at different toe-in angles(2.2). Train another linear model that contains 6 features: height, weight, walking speed, static alignment, baseline FPA, toe-in FPA, to predict KAM reduction(2.3).</p>
 <p>4. Test the KAM trajectory model1 provides and the corresponding KAM reduction model2 provides on dataset3 to see whether the model can generalize on data given by a different lab(2.4).</p>
-<img src="pp1\062111004154003.jpg" height="500" alt="Methods">
+<img src="pp1\062111004154003.jpg" height="400" alt="Methods">
 <p>5. Future Work: Calculate the moment with a more accurate formula. Use toe-out gait modification data as well. Incorporate datasets from multiple labs to further generalize the model. Investigate why weight has little thing to do with KAM reduction. Make sure that all features can be obtained without gaitanalysis. Improve measurement accuracy with motion capture techniques(e.g. wearable sensing, CV).</p>
 <p>6. My Question: What's the legitimacy of using linear model to predict KAM reduction? Even if we get the optimal toe-in angle, how can the patient control his/her feet to walk exactly in that angle?</p>
 <hr style="height:0px;border:none;border-top:3px solid #000000;" />
@@ -20,3 +20,4 @@
 <img src="pp2\10.1177_19476035211042406-fig4.jpeg" height="700" alt="Methods">
 <p>3. Results: Training the model takes approximately 1 day. Evaluating with the model takes several seconds. By comparing segmentation masks using Dice score and jaccard index, the model agrees better with readers than readers agree with each other. Comparison of subregional T2 mean values and longitudinal subregional T2 change give promising results. The percentage of cartilage area estimated using model segmentations agree well with expert's.</p>
 <p>4. Discussion: The proposed model exceeds all previous models, and is close to the limit of reproducibility for measuring regional T2 values. The author also made the code publicly available for further comparison.</p>
+<p>5. My Question: "but 12 of 14 subjects had a 4-year change larger than their model’s MAE 2.16 ms"--I think it should be smaller, not larger.
