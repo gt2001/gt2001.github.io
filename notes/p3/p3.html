@@ -2,7 +2,7 @@
 <p><a href="https://wias-berlin.de/software/tetgen/1.5/doc/manual/manual.pdf">Si, Hang, and A. TetGen. "A quality tetrahedral mesh generator and a 3d delaunay triangulator." Cited on 61 (2009).</a></p>
 <p>优质四面体网格和三维Delaunay三角剖分生成器</p>
 <p>0. Delaunay triangulation has many pretty mathematical properties.</p>
-<p>1. TetGen implements 2 algorithms: the Bowyer-Watson algorithm and the incremental flip algorithm. Both have the worst-case runtime $O(n^2)$ and the expected running time $O(nlogn)$.</p>
+<p>1. TetGen implements 2 algorithms: the Bowyer-Watson algorithm and the incremental flip algorithm. Both have the worst-case runtime O(n^2) and the expected running time O(nlogn).</p>
 <p>2. TetGen takes Piecewise Linear Complexes(PLCs, have two properties) as the input(.poly and .smesh files). It focuses on: the representation of the geometry(the boundary) and the quality of the mesh.</p>
 <p>3. -p to conform to the constrained Delaunay property and improve the mesh quality.</p>
 <p>4. -y to preserve the surface mesh(doesn't subdivide it).</p>
@@ -10,5 +10,5 @@
 <p>6. PLCs have a limitation: it doesn't take the curvature of the surfaces into account.</p>
 <p>7. Steiner points are necessary for triangulating some 3d polyhedra(e.g. the schonhardt polyhedron and the chazelle's polyhedron).</p>
 <p>8. There are three types of steiner tetrahedralizations: conforming Delaunay, constrained Delaunay, and constrained. The last one can preserve the input domain boundaries, thus it's useful in many engineering applications.</p>
-<p>9. Mesh quality: radius-edge ratio=radius/shortest edge, at least $$/sqrt{6}/4$$. Dihedral angle between $0^/circ-180^/circ$ is also measured by TetGen.</p>
+<p>9. Mesh quality: radius-edge ratio=radius/shortest edge, at least 0.612. Dihedral angle between 0-180 is also measured by TetGen.</p>
 <p>10. 
