@@ -12,9 +12,51 @@
 <img src="100323454805007.jpg" height="300" alt="schonhardt">
 <img src="100323454805008.jpg" height="300" alt="chazelle">
 <p>8. There are three types of steiner tetrahedralizations: conforming Delaunay, constrained Delaunay, and constrained. The last one can preserve the input domain boundaries, thus it's useful in many engineering applications.</p>
-<p>9. Mesh quality: radius-edge ratio=radius/shortest edge, at least 0.612. Dihedral angle between 0-180 is also measured by TetGen.</p>
+<p>9. Mesh quality: radius-edge ratio=radius/shortest edge, at least 0.612. Dihedral angle between 0-180 degrees is also measured by TetGen.</p>
 <p>10. Mesh adaptation and mesh sizing functions can control the mesh density and thus can reduce the simulation error by refining areas that have big gradients. The function H: |X|->R maps each point to a number indicating the edge length at that point isotropically. The -a switch can exert a maximum volume bound on every tetrahedra of the mesh. H can be assigned initially with a .mtr file or by a background mesh with a value at each mesh node indicating the mesh size. Set the number to zero to let TetGen ignore the number at that point. An adaptation method is shown below.</p>
 <img src="100323454805009.jpg" height="300" alt="mesh">
 <img src="100323454805010.jpg" height="300" alt="simulation result"></p>
-<img src="100323454805011.jpg" width="300" alt="flowchart">
+<img src="100323454805011.jpg" width="600" alt="flowchart">
 <p>11. The figure shown above is a detailed flowchart of the mesh generation process of TetGen. This(page 24) is very important!</p>
+<p>12. -q triggers the mesh refinement such that Steiner points are added to remove badly-shaped tetrahedra(no small face angle less than about 14 degrees). We can supply .vol, .mtr, abd .var files to control the mesh element size.</p>
+<p>13. -pq1.2V means all tetrahedra have radius-edge ratio bounded by 1.2.</p>
+<p>14. -pq1.2Va1 to impose a maximum volume constraint on the resulting tetrahedra.</p>
+<p>15. TetGen can export its tetrahedral mesh into the .mesh format by -pg(add a g) + medit [filename].1.mesh or -p -k(add a -k) + paraview [filename].1.vtk</p>
+<p>16. Accepted input file format: .poly, .smesh, .off, .stl, .ply, .mesh.</p>
+<p>17. -r to read an existing tetrahedral mesh with .node and .ele files or supply .face and .edge files in addition.
+<ul>
+  <li>-p Tetrahedralizes a piecewise linear complex (PLC).</li>
+  <li>-Y Preserves the input surface mesh (does not modify it).</li>
+  <li>-r Reconstructs a previously generated mesh.</li>
+  <li>-q Refines mesh (to improve mesh quality).</li>
+  <li>-R Mesh coarsening (to reduce the mesh elements).</li>
+  <li>-A Assigns attributes to tetrahedra in different regions.</li>
+  <li>-a Applies a maximum tetrahedron volume constraint.</li>
+  <li>-m Applies a mesh sizing function.</li>
+  <li>-i Inserts a list of additional points.</li>
+  <li>-O Specifies the level of mesh optimization.</li>
+  <li>-S Specifies maximum number of added points.</li>
+  <li>-T Sets a tolerance for coplanar test (default 10−8).</li>
+  <li>-X Suppresses use of exact arithmetic.</li>
+  <li>-M No merge of coplanar facets or very close vertices.</li>
+  <li>-w Generates weighted Delaunay (regular) triangulation.</li>
+  <li>-c Retains the convex hull of the PLC.</li>
+  <li>-d Detects self-intersections of facets of the PLC.</li>
+  <li>-z Numbers all output items starting from zero.</li>
+  <li>-f Outputs all faces to .face file.</li>
+  <li>-e Outputs all edges to .edge file.</li>
+  <li>-n Outputs tetrahedra neighbors to .neigh file.</li>
+  <li>-v Outputs Voronoi diagram to files.</li>
+  <li>-g Outputs mesh to .mesh file for viewing by Medit.</li>
+  <li>-k Outputs mesh to .vtk file for viewing by Paraview.</li>
+  <li>-J No jettison of unused vertices from output .node file.</li>
+  <li>-B Suppresses output of boundary information.</li>
+  <li>-N Suppresses output of .node file.</li>
+  <li>-E Suppresses output of .ele file.</li>
+  <li>-F Suppresses output of .face and .edge file.</li>
+  <li>-I Suppresses mesh iteration numbers.</li>
+  <li>-C Checks the consistency of the final mesh.</li>
+  <li>-Q Quiet: No terminal output except errors.</li>
+  <li>-V Verbose: Detailed information, more terminal output.</li>
+  <li>-h Help: A brief instruction for using TetGen.</li>
+</ul>
