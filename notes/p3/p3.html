@@ -24,6 +24,7 @@
 <p>15. TetGen can export its tetrahedral mesh into the .mesh format by -pg(add a g) + medit [filename].1.mesh or -p -k(add a -k) + paraview [filename].1.vtk</p>
 <p>16. Accepted input file format: .poly, .smesh, .off, .stl, .ply, .mesh.</p>
 <p>17. -r to read an existing tetrahedral mesh with .node and .ele files or supply .face and .edge files in addition.
+<p>18. All commands:</p>
 <ul>
   <li>-p Tetrahedralizes a piecewise linear complex (PLC).</li>
   <li>-Y Preserves the input surface mesh (does not modify it).</li>
@@ -59,4 +60,17 @@
   <li>-Q Quiet: No terminal output except errors.</li>
   <li>-V Verbose: Detailed information, more terminal output.</li>
   <li>-h Help: A brief instruction for using TetGen.</li>
+  <li>-D Generate a constrained Delaunay tetrahedralization(default is no Delaunay).</li>
+</ul>
+<p>19. All file formats:</p>
+<ul>
+  <li>.node   |input/output |a list of nodes.</li>
+  <li>.poly   |input        |a PLC.</li>
+  <li>.smesh  |input/output |a PLC.</li>
+  <li>.ele    |input/output |a list of tetrahedra.</li>
+  <li>.face   |input/output |a list of triangular faces.</li>
+  <li>.edge   |input/output |a list of edges.</li>
+  <li>.vol    |input        |a list of maximum volumes.</li>
+  <li>.mtr    |input/output |a mesh sizing function.</li>
+  <li>.neigh  |output       |a list of neighbors.</li>
 </ul>
