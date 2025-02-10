@@ -41,17 +41,14 @@
             font-family: 'Segoe UI', sans-serif;
             line-height: 1.6;
             margin: 2em;
-            counter-reset: figure-counter;
         }
 
         figure.portrait {
-            counter-increment: figure-counter;
             margin: 20px auto;
             text-align: center;
         }
 
         figcaption::before {
-            content: "Figure " counter(figure-counter) ": ";
             font-style: italic;
         }
 
