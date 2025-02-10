@@ -59,8 +59,8 @@
             <dd>
                 Three-element array specifying boundary vertex sequences:
                 <ul>
-                    <li>Format: <code>{{v<sub>11</sub>,...,v<sub>1N<sub>1</sub></sub>}, {v₂₁,...,v₂N₂}, {v₃₁,...,v₃N₃}}</code></li>
-                    <li>Boundary continuity: v₁N₁ = v₂₁, v₂N₂ = v₃₁, v₃N₃ = v₁₁</li>
+                    <li>Format: <code>{{v<sub>11</sub>,...,v<sub>1N<sub>1</sub></sub>}, {v<sub>21</sub>,...,v<sub>2N<sub>2</sub></sub>}, {v<sub>31</sub>,...,v<sub>3N<sub>3</sub></sub>}}</code></li>
+                    <li>Boundary continuity: v<sub>1N<sub>1</sub></sub> = v<sub>21</sub>, v<sub>2N<sub>2</sub></sub> = v<sub>31</sub>, v<sub>3N<sub>3</sub></sub> = v<sub>11</sub></li>
                 </ul>
             </dd>
 
@@ -88,47 +88,38 @@
 
     <div class="demo">
         <h3>Implementation Demo</h3>
-        <a href="https://gitee.com/gt2k01/tonghua/raw/master/files/Mesh_Embedding/main.cpp">View Demonstration Code</a>
+        <a href="https://gitee.com/gt2k01/tonghua/raw/master/files/Mesh_Embedding/main.cpp">Demonstration Code</a>
         <figure>
             <img src="images/Mesh_Embedding/Demo.png" alt="Parameterization Demo: Pyramid Structure Mapping">
             <figcaption>Figure 2: Demonstration of pyramid structure parameterization with color-coded boundary mapping</figcaption>
         </figure>
     </div>
 
-    <div class="requirements">
-        <h3>System Requirements</h3>
-        <ul>
-            <li>Input mesh must be:
-                <ul>
-                    <li>3D open manifold</li>
-                    <li>Genus-0 topology</li>
-                    <li>Triangular mesh structure</li>
-                </ul>
-            </li>
-            <li>Boundary vertices must be:
-                <ul>
-                    <li>Exclusively at chain endpoints</li>
-                    <li>Consistently ordered</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
     <div class="important-notes">
-        <h3>Critical Implementation Notes</h3>
-        <ul>
-            <li><strong>Orientation Consistency:</strong>
-                <p>Ensure consistent triangle orientations using:<br>
-                <code>MeshEmbedding::UnifyTriangleOrientations(mesh)</code><br>
-                prior to parameterization</p>
-            </li>
-            <li><strong>Numerical Precision:</strong>
-                <p>Double-precision computation required for guaranteed injective mapping</p>
-            </li>
-            <li><strong>Boundary Integrity:</strong>
-                <p>Non-terminal boundary vertices will cause degenerate triangles</p>
-            </li>
-        </ul>
+    <h3>Critical Implementation Notes</h3>
+    <ul>
+        <li><strong>Input Mesh Requirements:</strong>
+            <ul>
+                <li>Must be a 3D open manifold</li>
+                <li>Must have genus-0 topology</li>
+                <li>Must maintain triangular mesh structure</li>
+            </ul>
+        </li>
+
+        <li><strong>Orientation Consistency:</strong>
+            <p>Ensure consistent triangle orientations using:<br>
+            <code>MeshEmbedding::UnifyTriangleOrientations(mesh)</code><br>
+            prior to parameterization</p>
+        </li>
+
+        <li><strong>Numerical Precision:</strong>
+            <p>Double-precision computation required for guaranteed injective mapping</p>
+        </li>
+
+        <li><strong>Boundary Ear Triangle Placement:</strong>
+            <p>Vertices shared by only one triangle must appear exclusively at boundary chain endpoints to prevent degeneration</p>
+        </li>
+    </ul>
     </div>
 </section>
 
