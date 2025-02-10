@@ -45,4 +45,103 @@
     </div>
 
     <div class="parameters">
-        <h3>Input Parameters
+        <h3>Input Parameters</h3>
+        <dl>
+            <dt><code>mesh</code> (Mesh structure)</dt>
+            <dd>
+                <ul>
+                    <li><code>vertices</code>: Vector of 3D coordinates (v₁, v₂, ..., v<sub>N</sub>)</li>
+                    <li><code>triangles</code>: Vector of triangular faces (t₁, t₂, ..., t<sub>M</sub>)</li>
+                </ul>
+            </dd>
+
+            <dt><code>boundary_chains</code> (2D vector&lt;size_t&gt;)</dt>
+            <dd>
+                Three-element array specifying boundary vertex sequences:
+                <ul>
+                    <li>Format: <code>{{v₁₁,...,v₁N₁}, {v₂₁,...,v₂N₂}, {v₃₁,...,v₃N₃}}</code></li>
+                    <li>Boundary continuity: v₁N₁ = v₂₁, v₂N₂ = v₃₁, v₃N₃ = v₁₁</li>
+                </ul>
+            </dd>
+
+            <dt><code>weight_type</code> (size_t)</dt>
+            <dd>
+                Weighting scheme selection:
+                <ul>
+                    <li>0: Uniform Laplace weights</li>
+                    <li>1: Mean value coordinates (default)</li>
+                </ul>
+            </dd>
+
+            <dt><code>check_interval</code> (size_t)</dt>
+            <dd>Injectivity verification frequency (default: 100 iterations)</dd>
+
+            <dt><code>max_iterations</code> (size_t)</dt>
+            <dd>Maximum solver iterations (default: 10⁸)</dd>
+        </dl>
+    </div>
+
+    <div class="output">
+        <h3>Output</h3>
+        <p><code>embedding_result</code>: Vector of 2D coordinates representing parameterized vertices</p>
+    </div>
+
+    <div class="demo">
+        <h3>Implementation Demo</h3>
+        <a href="https://gitee.com/gt2k01/tonghua/raw/master/files/Mesh_Embedding/main.cpp">View Demonstration Code</a>
+        <figure>
+            <img src="images/Mesh_Embedding/Demo.png" alt="Parameterization Demo: Pyramid Structure Mapping">
+            <figcaption>Figure 2: Demonstration of pyramid structure parameterization with color-coded boundary mapping</figcaption>
+        </figure>
+    </div>
+
+    <div class="requirements">
+        <h3>System Requirements</h3>
+        <ul>
+            <li>Input mesh must be:
+                <ul>
+                    <li>3D open manifold</li>
+                    <li>Genus-0 topology</li>
+                    <li>Triangular mesh structure</li>
+                </ul>
+            </li>
+            <li>Boundary vertices must be:
+                <ul>
+                    <li>Exclusively at chain endpoints</li>
+                    <li>Consistently ordered</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="important-notes">
+        <h3>Critical Implementation Notes</h3>
+        <ul>
+            <li><strong>Orientation Consistency:</strong>
+                <p>Ensure consistent triangle orientations using:<br>
+                <code>MeshEmbedding::UnifyTriangleOrientations(mesh)</code><br>
+                prior to parameterization</p>
+            </li>
+            <li><strong>Numerical Precision:</strong>
+                <p>Double-precision computation required for guaranteed injective mapping</p>
+            </li>
+            <li><strong>Boundary Integrity:</strong>
+                <p>Non-terminal boundary vertices will cause degenerate triangles</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<style>
+    .section-divider { border: none; border-top: 3px solid #000; margin: 2em 0; }
+    .function-signature pre { background: #f5f5f5; padding: 15px; border-radius: 4px; }
+    .important-notes { background: #fff3d4; padding: 15px; margin: 20px 0; }
+    dt { font-weight: bold; margin-top: 10px; }
+    figure { margin: 20px 0; text-align: center; }
+    figcaption { font-style: italic; margin-top: 8px; }
+</style>
+
+</body>
+</html>
