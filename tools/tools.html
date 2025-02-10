@@ -1,9 +1,48 @@
-帮我将下面的自然语言进行规范，使其符合一个标准的软件功能介绍文档格式
-<a href="../index.html">return to homepage</a>
-<p>To help understand the functionality of each tool, Graphic images and easy-to-understand language have been used as much as possible without losing important information. If you don't understand the functions, send me an email at</p>
-<hr style="height:0px;border:none;border-top:3px solid #000000;" />
-<p><a href="https://gitee.com/gt2k01/tonghua/raw/master/files/Mesh_Embedding/Mesh_Embedding.h">Mesh_Embedding.h</a></p>
-<img src="images/Mesh_Embedding/Cow_To_Triangle.gif" width = "296"  alt="Cow"> 
-<p>Map a triangle patch to a </p>
-<img src="images/Mesh_Embedding/Example.png" alt="Example">
-<hr style="height:0px;border:none;border-top:3px solid #000000;" />
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="navigation">
+    <a href="../index.html">Return to Homepage</a>
+</div>
+
+<section class="introduction">
+    <h2>Documentation Overview</h2>
+    <div class="notice">
+        <p>This documentation utilizes visual aids and simplified terminology to enhance understanding while maintaining technical accuracy. For unresolved questions, please contact our support team via email.</p>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="mesh-embedding" class="function-documentation">
+    <h2>Mesh Embedding Module</h2>
+    
+    <div class="file-reference">
+        <h3>Header File</h3>
+        <p><a href="https://gitee.com/gt2k01/tonghua/raw/master/files/Mesh_Embedding/Mesh_Embedding.h">Mesh_Embedding.h</a></p>
+    </div>
+
+    <figure class="visual-demo">
+        <img src="images/Mesh_Embedding/Cow_To_Triangle.gif" width="296" alt="Mesh Embedding Visualization: 3D to 2D Triangle Mapping">
+        <figcaption>Figure 1: 3D surface patch parameterization onto planar triangle</figcaption>
+    </figure>
+
+    <div class="function-description">
+        <h3>Function Purpose</h3>
+        <p>Implements Tutte's embedding algorithm to parameterize 3D open meshes with annotated boundaries onto a 2D triangular domain.</p>
+    </div>
+
+    <div class="function-signature">
+        <h3>Function Signature</h3>
+        <pre><code>auto embedding_result = MeshEmbedding::TutteEmbedding::Parameterize(
+    const Mesh& mesh,
+    const std::vector&lt;std::vector&lt;size_t&gt;&gt;& boundary_chains,
+    const size_t weight_type = 1,
+    const size_t check_interval = 100,
+    const size_t max_iterations = 100000000
+);</code></pre>
+    </div>
+
+    <div class="parameters">
+        <h3>Input Parameters
