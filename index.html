@@ -1,18 +1,82 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <p>Personal webpage of Hua Tong</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hua Tong - Personal Website</title>
+    <meta name="description" content="Academic webpage of Hua Tong, Mechanical Engineering PhD candidate at Carnegie Mellon University">
+    <link rel="stylesheet" href="styles.css">
+    <!-- External header integration -->
+    <link rel="import" href="header.html" id="headerhtml">
 </head>
-<link rel="import" href="header.html" id="headerhtml"/>
+
 <body>
-  <img src="Portrait.jpg" width="200" alt="Portrait">
-  <p>Education: University of Science and Technology of China BS(2018.9-2022.7)-<b>Carnegie Mellon University MechE PhD(2022.9-2026.7 expected)</b></p>
-  <p>I'm advised by <a href="https://www.andrew.cmu.edu/user/jessicaz/">Prof. Yongjie Jessica Zhang</a>. My research interest is in mesh generation algorithms.</p>
-  <hr style="height:0px;border:none;border-top:3px solid #000000;" />
-  <ul>
-    <li><a href="mailto:huat2@andrew.cmu.edu">e-mail</a></li>
-    <li><a href="publications/publications.html">publications</a></li>
-    <li><a href="tools/tools.html">tools</a></li>
-    <li><a href="https://www.zhihu.com/people/thua-31">zhihu</a></li>
-  </ul>
+    <header class="page-header">
+        <h1>Hua Tong</h1>
+        <p class="subtitle">PhD Candidate in Mechanical Engineering</p>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="profile-section">
+            <figure class="portrait">
+                <img src="Portrait.jpg" 
+                     width="200" 
+                     height="200"
+                     alt="Professional portrait of Hua Tong"
+                     loading="lazy">
+                <figcaption class="sr-only">Hua Tong's professional portrait</figcaption>
+            </figure>
+
+            <article class="education">
+                <h2>Education</h2>
+                <ul class="timeline">
+                    <li>
+                        <strong>Bachelor of Science</strong>
+                        <span>University of Science and Technology of China</span>
+                        <time datetime="2018-09">September 2018</time> - <time datetime="2022-07">July 2022</time>
+                    </li>
+                    <li>
+                        <strong>PhD Candidate in Mechanical Engineering</strong>
+                        <span>Carnegie Mellon University</span>
+                        <time datetime="2022-09">September 2022</time> - <time datetime="2026-07">July 2026 (Expected)</time>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="research-info">
+            <h2>Research Profile</h2>
+            <p>
+                Advisor: <a href="https://www.andrew.cmu.edu/user/jessicaz/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          aria-label="Professor Yongjie Jessica Zhang's profile (opens in new tab)">
+                      Professor Yongjie Jessica Zhang
+                  </a>
+            </p>
+            <p>Research Focus: Computational geometry and mesh generation algorithms development</p>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <nav class="quick-links">
+            <h2 class="sr-only">Quick Links</h2>
+            <ul>
+                <li><a href="mailto:huat2@andrew.cmu.edu" aria-label="Send email to Hua Tong">📧 Contact via Email</a></li>
+                <li><a href="publications/publications.html" aria-label="View research publications">📚 Publications</a></li>
+                <li><a href="tools/tools.html" aria-label="Explore research tools">🛠️ Research Tools</a></li>
+                <li><a href="https://www.zhihu.com/people/thua-31" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Hua Tong's Zhihu profile (opens in new tab)">
+                      🇨🇳 Zhihu Profile
+                  </a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer class="page-footer">
+        <!-- Footer content can be added here -->
+    </footer>
 </body>
 </html>
