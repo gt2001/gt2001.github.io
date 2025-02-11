@@ -24,7 +24,7 @@
     </div>
 
     <figure class="visual-demo">
-        <img src="images/Mesh_Embedding/Lion_To_Triangle.gif" width="296" alt="Mesh Embedding Visualization: 3D to 2D Mapping">
+        <img src="images/Mesh_Embedding/Lion_To_Triangle.gif" width="296" alt="Mesh Embedding Visualization: 3D lion to 2D convex polygon Mapping">
         <figcaption>3D surface patch parameterization onto planar convex polygon</figcaption>
     </figure>
 
@@ -57,10 +57,10 @@
 
             <dt><code>boundary_chains</code> (2D vector&lt;size_t&gt;)</dt>
             <dd>
-                Single boundary loop specification:
+                Three-element array specifying boundary vertex sequences:
                 <ul>
-                    <li>Format: <code>{{v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n</sub>}}</code></li>
-                    <li>Boundary continuity: v<sub>n</sub> must connect back to v<sub>1</sub></li>
+                    <li>Format: <code>{{v<sub>11</sub>,...,v<sub>1N<sub>1</sub></sub>},..., {v<sub>L1</sub>,...,v<sub>LN<sub>L</sub></sub>}}</code></li>
+                    <li>Boundary continuity: v<sub>iN<sub>i</sub></sub> = v<sub>(i+1)%L1</sub></li>
                 </ul>
             </dd>
 
@@ -68,7 +68,7 @@
             <dd>
                 Weighting scheme selection:
                 <ul>
-                    <li>0: Uniform Laplace weights (w<sub>ij</sub> = 1)</li>
+                    <li>0: Uniform Laplace weights: w<sub>ij</sub> = 1</li>
                     <li>1: Mean value coordinates (default):
                         <div class="formula">
                             w<sub>ij</sub> = [tan(α/2) + tan(β/2)] / ||v<sub>i</sub> - v<sub>j</sub>||
