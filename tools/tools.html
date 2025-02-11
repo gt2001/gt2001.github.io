@@ -25,12 +25,12 @@
 
     <figure class="visual-demo">
         <img src="images/Mesh_Embedding/Lion_To_Triangle.gif" width="296" alt="Mesh Embedding Visualization: 3D to 2D Triangle Mapping">
-        <figcaption>3D surface patch parameterization onto planar triangle</figcaption>
+        <figcaption>3D surface patch parameterization onto planar convex polygon</figcaption>
     </figure>
 
     <div class="function-description">
         <h3>Function Purpose</h3>
-        <p>Implements Tutte's embedding algorithm to parameterize 3D open meshes with annotated boundaries onto a 2D triangular domain.</p>
+        <p>Implements Tutte's embedding algorithm to parameterize 3D open meshes with annotated boundaries onto a 2D convex domain.</p>
     </div>
 
     <div class="function-signature">
@@ -59,8 +59,8 @@
             <dd>
                 Three-element array specifying boundary vertex sequences:
                 <ul>
-                    <li>Format: <code>{{v<sub>11</sub>,...,v<sub>1N<sub>1</sub></sub>}, {v<sub>21</sub>,...,v<sub>2N<sub>2</sub></sub>}, {v<sub>31</sub>,...,v<sub>3N<sub>3</sub></sub>}}</code></li>
-                    <li>Boundary continuity: v<sub>1N<sub>1</sub></sub> = v<sub>21</sub>, v<sub>2N<sub>2</sub></sub> = v<sub>31</sub>, v<sub>3N<sub>3</sub></sub> = v<sub>11</sub></li>
+                    <li>Format: <code>{{v<sub>11</sub>,...,v<sub>1N<sub>1</sub></sub>},..., {v<sub>L1</sub>,...,v<sub>LN<sub>3</sub></sub>}}</code></li>
+                    <li>Boundary continuity: v<sub>iN<sub>1</sub></sub> = v<sub>(i+1)%L1</sub></li>
                 </ul>
             </dd>
 
