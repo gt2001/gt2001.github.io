@@ -36,8 +36,8 @@
 
     <div class="function-signature">
         <h3>Function Signature</h3>
-        <pre><code>auto embedding_result = MeshEmbedding::TutteEmbedding::Parameterize(
-    const Mesh3D& mesh,
+        <pre><code>MeshTypes::Mesh2D result_mesh = MeshEmbedding::TutteEmbedding::Parameterize(
+    const MeshTypes::Mesh3D& mesh,
     const std::vector&lt;std::vector&lt;size_t&gt;&gt;& boundary_chains,
     const size_t weight_type = 1,
     const size_t check_interval = 100,
@@ -48,7 +48,7 @@
     <div class="parameters">
         <h3>Input Parameters</h3>
         <dl>
-            <dt><code>mesh</code> (Mesh3D structure)</dt>
+            <dt><code>mesh</code> (MeshTypes::Mesh3D structure)</dt>
             <dd>
                 <ul>
                     <li><code>vertices</code>: Vector of 3D coordinates (v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>N</sub>)</li>
@@ -89,10 +89,10 @@
 
     <div class="output">
         <h3>Output</h3>
-        <dt><code>result_mesh</code> (Mesh2D structure)</dt>
+        <dt><code>result_mesh</code> (MeshTypes::Mesh2D structure)</dt>
         <dd>
             <ul>
-                <li><code>vertices</code>: Vector of 2D coordinates (v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>N</sub>)</li>
+                <li><code>vertices</code>: Vector of 2D coordinates (v'<sub>1</sub>, v'<sub>2</sub>, ..., v'<sub>N</sub>)</li>
                 <li><code>faces</code>: Vector of triangular faces (t<sub>1</sub>, t<sub>2</sub>, ..., t<sub>M</sub>)</li>
             </ul>
         </dd>
@@ -120,7 +120,7 @@
 
         <li><strong>Orientation Consistency:</strong>
             <p>Ensure consistent triangle orientations using:<br>
-            <code>MeshEmbedding::UnifyTriangleOrientations(Mesh3D& mesh);</code><br>
+            <code>MeshEmbedding::UnifyTriangleOrientations(MeshTypes::Mesh3D& mesh);</code><br>
             prior to parameterization</p>
         </li>
 
