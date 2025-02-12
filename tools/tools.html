@@ -19,7 +19,8 @@
     <h2>Mesh Embedding Module</h2>
     
     <div class="file-reference">
-        <h3>Header File</h3>
+        <h3>Header Files</h3>
+        <p><a href="https://gitee.com/gt2k01/tonghua/raw/master/files/Mesh_Types/Mesh_Types.h">Mesh_Types.h</a></p>
         <p><a href="https://gitee.com/gt2k01/tonghua/raw/master/files/Mesh_Embedding/Mesh_Embedding.h">Mesh_Embedding.h</a></p>
     </div>
 
@@ -36,7 +37,7 @@
     <div class="function-signature">
         <h3>Function Signature</h3>
         <pre><code>auto embedding_result = MeshEmbedding::TutteEmbedding::Parameterize(
-    const Mesh& mesh,
+    const Mesh3D& mesh,
     const std::vector&lt;std::vector&lt;size_t&gt;&gt;& boundary_chains,
     const size_t weight_type = 1,
     const size_t check_interval = 100,
@@ -47,11 +48,11 @@
     <div class="parameters">
         <h3>Input Parameters</h3>
         <dl>
-            <dt><code>mesh</code> (Mesh structure)</dt>
+            <dt><code>mesh</code> (Mesh3D structure)</dt>
             <dd>
                 <ul>
                     <li><code>vertices</code>: Vector of 3D coordinates (v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>N</sub>)</li>
-                    <li><code>triangles</code>: Vector of triangular faces (t<sub>1</sub>, t<sub>2</sub>, ..., t<sub>M</sub>)</li>
+                    <li><code>faces</code>: Vector of triangular faces (t<sub>1</sub>, t<sub>2</sub>, ..., t<sub>M</sub>)</li>
                 </ul>
             </dd>
 
@@ -88,10 +89,11 @@
 
     <div class="output">
         <h3>Output</h3>
-        <dt><code>embedding_result</code> (EmbeddingResult structure)</dt>
+        <dt><code>result_mesh</code> (Mesh2D structure)</dt>
         <dd>
             <ul>
-                <li><code>coordinates</code>: Vector of 2D coordinates (v'<sub>1</sub>, v'<sub>2</sub>, ..., v'<sub>N</sub>) representing parameterized vertices</li>
+                <li><code>vertices</code>: Vector of 2D coordinates (v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>N</sub>)</li>
+                <li><code>faces</code>: Vector of triangular faces (t<sub>1</sub>, t<sub>2</sub>, ..., t<sub>M</sub>)</li>
             </ul>
         </dd>
     </div>
@@ -118,7 +120,7 @@
 
         <li><strong>Orientation Consistency:</strong>
             <p>Ensure consistent triangle orientations using:<br>
-            <code>MeshEmbedding::UnifyTriangleOrientations(mesh)</code><br>
+            <code>MeshEmbedding::UnifyTriangleOrientations(Mesh3D& mesh);</code><br>
             prior to parameterization</p>
         </li>
 
